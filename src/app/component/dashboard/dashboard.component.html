@@ -1,0 +1,134 @@
+
+
+<div id="main">
+     
+        <mat-sidenav-container >
+                <mat-sidenav #sidenav [mode]="push" class="example-container" >
+                        <mat-icon class="dragger-sidebar" aria-hidden="false" aria-label="Example heart icon" (click)="sidenav.toggle()">reorder</mat-icon>Main Menu  
+                        <mat-accordion class="accor-dta">
+                                <mat-expansion-panel class="accor-boder" >
+                                  <mat-expansion-panel-header class="panel-header"  >
+                                    <mat-panel-title >
+                           
+                                        <span class="col-xs-1">
+                                               
+                                                <mat-icon class="example-icon" >home</mat-icon>
+                                               
+                                        </span>
+                                         <span class="col-xs-11">
+                                                Home
+                                         </span>
+                                         
+                                          
+                                    </mat-panel-title>
+                                 
+                                  </mat-expansion-panel-header>
+                               
+                                  <button mat-raised-button (click)="navigate(0)">Indicator</button>
+                                  <button mat-raised-button (click)="navigate(1)">Map editor</button>
+                                  <button mat-raised-button (click)="navigate(2)">Warnning</button>
+                                  
+                                                    
+                              
+                         
+                                </mat-expansion-panel>
+                                <mat-expansion-panel  class="accor-boder" (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+                                  <mat-expansion-panel-header class="panel-header" >
+                                    <mat-panel-title>
+                                            <mat-icon class="example-icon" >toys</mat-icon>
+                                      AC Configuration
+                                    </mat-panel-title>
+                                
+                                  </mat-expansion-panel-header>
+                                  <button mat-raised-button (click)="navigate(3)">Ac data</button>
+                                  <button mat-raised-button (click)="navigate(4)">Warnning</button>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel  class="accor-boder" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header class="panel-header" >
+                                    <mat-panel-title>
+                                            <mat-icon class="example-icon" >highlight</mat-icon>
+                                       Light Configuration
+                                    </mat-panel-title>
+                                
+                                    </mat-expansion-panel-header>
+                                    <button mat-raised-button (click)="navigate(5)">Light Data</button>
+                                    <button mat-raised-button (click)="navigate(6)">Warnning</button>
+                                </mat-expansion-panel>
+                                <mat-expansion-panel  class="accor-boder" (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                                    <mat-expansion-panel-header class="panel-header" >
+                                    <mat-panel-title>
+                                            <mat-icon class="example-icon" >info</mat-icon>
+                                       General Configuration
+                                    </mat-panel-title>
+                                
+                                    </mat-expansion-panel-header>
+                                    <button mat-raised-button (click)="navigate(7)">Mobile users</button>
+                                    <button mat-raised-button (click)="navigate(8)">Admin Privilagdes</button>
+                                  
+                                </mat-expansion-panel>
+                              </mat-accordion>
+                    
+                    
+                    
+                  </mat-sidenav>
+                <mat-sidenav-content>
+                        <mat-toolbar> 
+                                <mat-toolbar-row>
+                                        <mat-icon class="dragger" aria-hidden="false" aria-label="Example heart icon" (mouseenter)="sidenav.toggle()" (click)="sidenav.toggle()">reorder</mat-icon>
+                                        <span> <h1>BAS 1.0</h1></span>
+                                        <span class="example-spacer"></span>
+                                        <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="navigation()">
+                                          <mat-icon>favorite</mat-icon>
+                                        </button>
+                                        <!-- <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon> -->
+                                        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+                                        <mat-icon class="example-icon" matBadge="8" matBadgeColor="warn" matBadgePosition="before" matBadgeOverlap="true" [matBadgeHidden]="false">home</mat-icon>
+                                        <div mat-card-avatar class="example-header-image" [matMenuTriggerFor]="menu"></div>
+                                        <mat-menu #menu="matMenu">
+                                            <button mat-menu-item>
+                                              <mat-icon>dialpad</mat-icon>
+                                              <span>Redial</span>
+                                            </button>
+                                            <button mat-menu-item disabled>
+                                              <mat-icon>voicemail</mat-icon>
+                                              <span>Check voice mail</span>
+                                            </button>
+                                            <button mat-menu-item>
+                                              <mat-icon>notifications_off</mat-icon>
+                                              <span>Disable alerts</span>
+                                            </button>
+                                          </mat-menu>
+                                      </mat-toolbar-row>
+                                    </mat-toolbar>
+                             
+                           
+                                <ng-container *ngFor="let item of navigator;">
+                                    <div *ngIf="item==0"><app-home></app-home></div>
+                                    <div *ngIf="item==1"><app-map-editor></app-map-editor></div> 
+                                    <div *ngIf="item==2"><app-warnning-general></app-warnning-general></div> 
+                                    <div *ngIf="item==3"><app-ac-configure></app-ac-configure></div>
+                                    <div *ngIf="item==4"><app-warnning-ac></app-warnning-ac></div>
+                                    <div *ngIf="item==5"><app-light-configure></app-light-configure></div>
+                                    <div *ngIf="item==6"><app-warnning-light></app-warnning-light></div>
+                                    <div *ngIf="item==7"><app-mobile-user></app-mobile-user></div>
+                                    <div *ngIf="item==8"><app-admin></app-admin></div>
+                                    <!-- <div *ngIf="item==4">first<p>{{item}}</p><app-ac-configure></app-ac-configure></div>  -->
+                                    
+
+                                <!-- <p>bellow{{item}}</p> -->
+                                </ng-container>
+                    
+                                
+                      
+                        
+
+                </mat-sidenav-content>
+        </mat-sidenav-container>
+    
+  
+   
+  
+   
+</div>

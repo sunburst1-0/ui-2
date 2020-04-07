@@ -1,0 +1,17 @@
+.test{
+
+color: white !important;
+
+}
+.main{
+   height: 100% !important;
+   background-color: aqua !important;
+}
+
+.second{
+   background-color: rosybrown !important;
+}
+
+.third{
+   background-color: blue !important;
+}

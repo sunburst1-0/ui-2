@@ -1,0 +1,57 @@
+<section class="fl-column card-assign-work">
+    <div style="display:flex;flex-direction: row;padding: 10px;color: #48494d">
+      <i class="fas fa-ebay"></i>
+      <span>Assigned Work</span>
+    </div>
+    <div style="display:flex;width: 100%;padding: 10px">
+      <p-table [columns]="cols" [value]="dataSource" [(selection)]="selectedItems" dataKey="id" [rows]="4" paginator="true">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th *ngFor="let col of columns">
+              {{ col.header }}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+            <td>
+              <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+            </td>
+            <td>
+              {{ rowData.country }}
+            </td>
+            <td>
+              {{ rowData.company }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </section>
+  <section class="fl-row card-chat">
+    <div  class="fl-start" style="padding: 10px;width: 100%;height: calc( 100vh - 409px);">
+      <kendo-chat [messages]="feed | async" [user]="user" (sendMessage)="sendMessage($event)"> </kendo-chat>
+    </div>
+    <div style="display: flex;justify-content: flex-start;">
+      <section class="fl-column">
+        <div class="fl-row" style="height:43px;">
+          <button style="margin-top: 10px;margin-right: 5px" pButton type="button" label="Connect" class="ui-button-secondary fl"></button>
+          <button
+            style="margin-top: 10px;margin-right: 10px;width: 100%"
+            pButton
+            type="button"
+            label="Call"
+            class="ui-button-secondary fl"
+          ></button>
+        </div>
+        <div class="fl-row" style="height:38px;">
+          <button style="margin-top:5px;margin-right: 5px" pButton type="button" label="Connect" class="ui-button-secondary fl"></button>
+          <button style="margin-top:5px;margin-right: 10px" pButton type="button" label="Connect" class="ui-button-secondary fl"></button>
+        </div>
+      </section>
+    </div>
+  </section>
+  

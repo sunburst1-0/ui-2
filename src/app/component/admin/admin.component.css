@@ -1,0 +1,62 @@
+.card-dark {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    background-color: #080915ad;
+    margin: 10px;
+    padding: 15px;
+    overflow: auto;
+  }
+  
+  .main-form {
+    display: flex;
+    flex-direction: column;
+    /*width: 100%;*/
+    padding: 20px;
+  }
+  
+  .custom-row {
+    width: 100% !important;
+  }
+  
+  .hidden {
+    visibility: hidden;
+  }
+  
+  .label-color {
+    color: white;
+  }
+  fieldset {
+    border: 0.03rem solid #656565;
+    border-radius: 2px;
+  }
+  
+  legend {
+    margin-left: 10px;
+    padding: 0 5px;
+    width: unset;
+    font-size: 16px;
+  }
+  .btn-row-align-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .btn-row-align-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .width-1-of-3 {
+    width: calc((100% - 10px) / 3);
+  }
+  
+  .type-flex-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+  }
+  

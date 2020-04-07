@@ -1,0 +1,104 @@
+.test{
+
+    font: 41px sans-serif;
+
+}
+
+.sun{
+
+  z-index: 1000;
+}
+
+
+  .sunburst-tooltip {
+    display: none;
+    position: absolute;
+    max-width: 520px;
+    white-space: nowrap;
+    padding: 5px;
+    border-radius: 5px;
+    font: 12px sans-serif;
+    color: #eee;
+    /* background: rgba(0,0,0,0.65); */
+    background-color: #1F1B24;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    color: rgb(255, 255, 255);
+    display: flex;
+    /* background-color: #222437; */
+    background-color: #1F1B24;
+    box-sizing: border-box;
+    padding: 3 16px;
+    width: 100% !important;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    border-style: none;
+    /* overflow: hidden; */
+} 
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-icon {
+  padding: 4px 25px 7px 0px;
+  
+}
+.mat-grid-tile{
+  width: 100%;
+     overflow: unset !important;
+     padding-top: 60px !important;
+
+
+}
+.indicator-card{
+
+  display: flex;
+  flex-direction: row;
+  max-width: 300px !important;
+  max-height: 100px !important;
+  margin: 20px !important;
+  overflow: unset !important;
+}
+.card-tile{
+
+  padding: 10px !important;
+width: 100px !important;
+
+}
+.mat-card-header{
+
+  padding-left: 5px !important;
+  margin: inherit;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+}
+
+
+.sun-first{
+
+  margin-top: 50px !important;
+}
+.sun-second{
+
+  margin-top: 200px !important;
+  overflow: unset !important;
+}
+.sun-bottem{
+
+  margin-top: 200px !important;
+}
+.example-header-image {
+  background-image: url('../../../assets/pictures/user.svg');
+  background-size: cover;
+  z-index: 3;
+}
+
+.mat-card-content{
+
+  text-align: center !important;
+}

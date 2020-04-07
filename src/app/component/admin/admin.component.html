@@ -1,0 +1,347 @@
+<div class="card-dark">
+    <fieldset style="margin-bottom: 5px">
+      <legend>Device Information</legend>
+      <form [formGroup]="deviceInfoForm" class="main-form">
+        <div class="row custom-row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <label class="label-color">ID</label>
+            <div class="form-group">
+              <input pInputText type="text" class="form-control" formControlName="id" />
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <label class="label-color">Version</label>
+            <div class="form-group">
+              <input pInputText type="text" class="form-control" formControlName="version" />
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <label class="label-color">Floor</label>
+            <div class="form-group">
+              <p-dropdown
+                [style]="{ width: '100%' }"
+                [options]="floorDropdown"
+                id="floorId"
+                formControlName="floorId"
+                filter="true"
+                [showClear]="true"
+              >
+              </p-dropdown>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <label class="label-color">Location</label>
+            <div class="form-group">
+              <p-dropdown
+                [style]="{ width: '100%' }"
+                [options]="locationDropdown"
+                id="locationId"
+                formControlName="locationId"
+                filter="true"
+                [showClear]="true"
+              >
+              </p-dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="row custom-row">
+          <div class="col-md-5 col-sm-12">
+            <label class="label-color">Type</label>
+            <div class="form-group">
+              <p-dropdown
+                [style]="{ width: '100%' }"
+                [options]="typeDropdown"
+                id="type"
+                formControlName="type"
+                filter="true"
+                [showClear]="true"
+              >
+              </p-dropdown>
+            </div>
+          </div>
+          <div class="col-md-5 col-sm-12">
+            <label class="label-color">Vendor Name</label>
+            <div class="form-group">
+              <p-dropdown
+                [style]="{ width: '100%' }"
+                [options]="vendorDropdown"
+                id="vendorName"
+                formControlName="vendorName"
+                filter="true"
+                [showClear]="true"
+              >
+              </p-dropdown>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-12">
+            <label class="hidden">Add</label>
+            <div class="form-group">
+              <button pButton type="button" label="Add" class="ui-button-primary" (click)="addDataToTable()"></button>
+            </div>
+          </div>
+        </div>
+        <p-table
+          [columns]="cols"
+          [value]="dataSource"
+          [(selection)]="selectedItems"
+          dataKey="type"
+          [rows]="4"
+          paginator="true"
+          [style]="{ marginBottom: '15px' }"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns" [ngStyle]="{ width: col.width }">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+              <td>{{ rowData?.type }}</td>
+              <td>{{ rowData?.vendor }}</td>
+              <td>
+                <button pButton type="button" label="Delete" class="ui-button-danger" (click)="deleteData(rowData)"></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+        <div class="row custom-row">
+          <div class="col-lg-6 col-md-6">
+            <label class="label-color">Topics In</label>
+            <div class="form-group">
+              <textarea id="topicsIn" class="md-textarea form-control" rows="4" formControlName="topicsIn" pInputText> </textarea>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <label class="label-color">Topics Out</label>
+            <div class="form-group">
+              <textarea id="topicsOut" class="md-textarea form-control" rows="4" formControlName="topicsOut" pInputText> </textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row custom-row">
+          <div class="col-lg-6 col-md-6">
+            <label class="label-color">Dimension</label>
+            <div class="form-group">
+              <input id="dimension" class="form-control" formControlName="dimension" pInputText />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <label class="label-color">Dimmer Count</label>
+            <div class="form-group">
+              <input id="dimmerCount" class="form-control" formControlName="dimmerCount" pInputText />
+            </div>
+          </div>
+        </div>
+        <div class="btn-row-align-end">
+          <button
+            style="margin-right: 5px"
+            pButton
+            type="button"
+            label="Create"
+            class="ui-button-primary"
+            (click)="deviceInfoCreate()"
+          ></button>
+          <button
+            style="margin-right: 5px"
+            pButton
+            type="button"
+            label="Update"
+            class="ui-button-primary"
+            (click)="deviceInfoUpdate()"
+          ></button>
+          <button pButton type="button" label="Load" class="ui-button-primary" (click)="deviceInfoLoad()"></button>
+        </div>
+      </form>
+    </fieldset>
+    <section class="type-flex-row">
+      <fieldset class="width-1-of-3" style="margin-right: 5px">
+        <legend>Appliance Type</legend>
+        <form [formGroup]="applianceTypeForm" class="main-form">
+          <div class="row custom-row">
+            <div class="col-lg-12 col-md-12">
+              <label class="label-color">Type</label>
+              <div class="form-group">
+                <input class="form-control" formControlName="type" pInputText />
+              </div>
+            </div>
+          </div>
+          <div class="btn-row-align-center">
+            <button
+              style="margin-right: 5px"
+              pButton
+              type="button"
+              label="Create"
+              class="ui-button-primary"
+              (click)="applianceTypeCreate()"
+            ></button>
+            <button pButton type="button" label="Delete" class="ui-button-primary" (click)="applianceTypeDelete()"></button>
+          </div>
+        </form>
+      </fieldset>
+      <fieldset class="width-1-of-3" style="margin-right: 5px">
+        <legend>Sensor Type</legend>
+        <form [formGroup]="sensorTypeForm" class="main-form">
+          <div class="row custom-row">
+            <div class="col-lg-12 col-md-12">
+              <label class="label-color">Type</label>
+              <div class="form-group">
+                <input class="form-control" formControlName="type" pInputText />
+              </div>
+            </div>
+          </div>
+          <div class="btn-row-align-center">
+            <button
+              style="margin-right: 5px"
+              pButton
+              type="button"
+              label="Create"
+              class="ui-button-primary"
+              (click)="sensorTypeCreate()"
+            ></button>
+            <button pButton type="button" label="Delete" class="ui-button-primary" (click)="sensorTypeDelete()"></button>
+          </div>
+        </form>
+      </fieldset>
+      <fieldset class="width-1-of-3">
+        <legend>Room Type</legend>
+        <form [formGroup]="roomTypeForm" class="main-form">
+          <div class="row custom-row">
+            <div class="col-lg-12 col-md-12">
+              <label class="label-color">Type</label>
+              <div class="form-group">
+                <input class="form-control" formControlName="type" pInputText />
+              </div>
+            </div>
+          </div>
+          <div class="btn-row-align-center">
+            <button
+              style="margin-right: 5px"
+              pButton
+              type="button"
+              label="Create"
+              class="ui-button-primary"
+              (click)="roomTypeCreate()"
+            ></button>
+            <button pButton type="button" label="Delete" class="ui-button-primary" (click)="roomTypeDelete()"></button>
+          </div>
+        </form>
+      </fieldset>
+    </section>
+    <fieldset style="margin-bottom: 5px">
+      <legend>Sensor Information</legend>
+      <form [formGroup]="sensorInfoForm" class="main-form">
+        <div class="row custom-row">
+          <div class="col-lg-4 col-md-4">
+            <label class="label-color">Version</label>
+            <div class="form-group">
+              <input id="version" class="form-control" formControlName="version" pInputText />
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <label class="label-color">Vendor Info</label>
+            <div class="form-group">
+              <input id="vendorInfo" class="form-control" formControlName="vendorInfo" pInputText />
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <label class="label-color">Accuracy</label>
+            <div class="form-group">
+              <input id="accuracy" class="form-control" formControlName="accuracy" pInputText />
+            </div>
+          </div>
+        </div>
+        <div class="row custom-row">
+          <div class="col-lg-4 col-md-4">
+            <label class="label-color">Voltage</label>
+            <div class="form-group">
+              <input id="voltage" class="form-control" formControlName="voltage" pInputText />
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <label class="label-color">Output Type</label>
+            <div class="form-group">
+              <input id="outputType" class="form-control" formControlName="outputType" pInputText />
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <label class="label-color">Type</label>
+            <div class="form-group">
+              <input class="form-control" formControlName="type" pInputText />
+            </div>
+          </div>
+        </div>
+        <div class="btn-row-align-end">
+          <button
+            style="margin-right: 5px"
+            pButton
+            type="button"
+            label="Create"
+            class="ui-button-primary"
+            (click)="sensorInfoCreate()"
+          ></button>
+          <button
+            style="margin-right: 5px"
+            pButton
+            type="button"
+            label="Update"
+            class="ui-button-primary"
+            (click)="sensorInfoUpdate()"
+          ></button>
+          <button pButton type="button" label="Load" class="ui-button-primary" (click)="sensorInfoLoad()"></button>
+        </div>
+      </form>
+    </fieldset>
+    <section class="type-flex-row">
+      <fieldset style="width: calc((100% - 5px)/3);margin-right: 5px">
+        <legend>Floor</legend>
+        <form [formGroup]="floorForm" class="main-form">
+          <div class="row custom-row">
+            <div class="col-lg-12 col-md-12">
+              <label class="label-color">No</label>
+              <div class="form-group">
+                <input class="form-control" formControlName="no" pInputText />
+              </div>
+            </div>
+          </div>
+          <div class="btn-row-align-center">
+            <button style="margin-right: 5px" pButton type="button" label="Create" class="ui-button-primary" (click)="floorCreate()"></button>
+            <button pButton type="button" label="Delete" class="ui-button-primary" (click)="floorDelete()"></button>
+          </div>
+        </form>
+      </fieldset>
+      <fieldset style="width: calc((100% - 5px)/3*2)">
+        <legend>Location</legend>
+        <form [formGroup]="locationForm" class="main-form">
+          <div class="row custom-row">
+            <div class="col-lg-6 col-md-6">
+              <label class="label-color">Floor</label>
+              <div class="form-group">
+                <p-dropdown [style]="{ width: '100%' }" [options]="floorDropdown" formControlName="floor" filter="true" [showClear]="true">
+                </p-dropdown>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label class="label-color">Type</label>
+              <div class="form-group">
+                <input class="form-control" formControlName="type" pInputText />
+              </div>
+            </div>
+          </div>
+          <div class="btn-row-align-center">
+            <button
+              style="margin-right: 5px"
+              pButton
+              type="button"
+              label="Create"
+              class="ui-button-primary"
+              (click)="locationCreate()"
+            ></button>
+            <button pButton type="button" label="Delete" class="ui-button-primary" (click)="locationDelete()"></button>
+          </div>
+        </form>
+      </fieldset>
+    </section>
+  </div>
+  
