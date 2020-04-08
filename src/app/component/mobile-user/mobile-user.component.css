@@ -16,9 +16,9 @@
   /*flex-direction: column;*/
   width: 256px;
   height: calc(100vh - 80px);
-  background-image: url('../../../assets/images/marco-perretta-unsplash.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  /*background-image: url('../../../assets/images/marco-perretta-unsplash.jpg');*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
   /*background-color: #a471ca;*/
   /*margin-left: -8px;*/
 }
@@ -35,9 +35,9 @@
   height: calc(100vh - 80px);
   width: calc(100vw - 223px);
   /*margin-right: -8px;*/
-  background-image: url('../../../assets/images/road_marking_bridge.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  /*background-image: url('../../../assets/images/road_marking_bridge.jpg');*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
 }
 .header-items-bar {
   display: flex;
