@@ -1,57 +1,160 @@
-<section class="fl-column card-assign-work">
-    <div style="display:flex;flex-direction: row;padding: 10px;color: #48494d">
-      <i class="fas fa-ebay"></i>
-      <span>Assigned Work</span>
+<section class="fl-column">
+  <!--  <div class="header-nav">-->
+  <!--    <div class="header-items-bar">-->
+  <!--      <div class="header-item-container" style="width: 30vw">-->
+  <!--        <div style="display: flex;justify-content: space-between;align-items: center;width: 100%;">-->
+  <!--          <section style="display: flex;justify-content: center;align-items: center;color: #48494d">Emo no:</section>-->
+  <!--          <section style="display: flex;color: white">+568974123</section>-->
+  <!--          <section class="vr-line"></section>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--      <div class="header-item-container" style="width: 30vw">-->
+  <!--        <div style="display: flex;justify-content: space-between;align-items: center;width: 100%;">-->
+  <!--          <section style="display: flex;width: 12vw;color: #48494d">In Work:</section>-->
+  <!--          <section style="display: flex;justify-content: space-evenly;color: white;width: 100%">-->
+  <!--            <i class="fa fa-star"></i>-->
+  <!--            <i class="fa fa-star"></i>-->
+  <!--            <i class="fa fa-star"></i>-->
+  <!--            <i class="fa fa-star"></i>-->
+  <!--            <i class="fa fa-star"></i>-->
+  <!--          </section>-->
+  <!--          <section class="vr-line"></section>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--      <div class="header-item-profile-container" (click)="menu.toggle($event)">-->
+  <!--        <img class="profile-picture-header" src="../../../assets/images/profiles/eva.png" alt="" />-->
+  <!--      </div>-->
+  <!--      <p-menu #menu [popup]="true" [model]="items"></p-menu>-->
+  <!--      <div style="display: flex;flex-direction: column;margin-left: 2vh">-->
+  <!--        <span style="color: white">{{ userProfile.name }}</span>-->
+  <!--        <span style="font-size: 0.7rem;color: white">{{ userProfile.status === 1 ? 'Online' : 'Offline' }}</span>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <div class="content-with-side-nav">
+    <div class="side-nav">
+      <div class="side-nav-all-items-container">
+        <p-scrollPanel
+          [style]="{ height: 'calc(100vh - 80px)' }"
+          styleClass="customBarDark"
+        >
+          <div class="side-nav-item-container" *ngFor="let p of person">
+            <section class="side-nav-profile-container">
+              <img
+                src="../assets/images/profiles/{{ p.picUrl }}"
+                alt=""
+                class="pro-pic"
+              />
+            </section>
+            <section class="side-nav-profile-bar">
+              <div class="status-name">
+                <section class="person-name">{{ p.name }}</section>
+                <section style="display: flex;align-items: center">
+                  <i
+                    class="fa fa-circle"
+                    [ngStyle]="{
+                      color: p.status === 0 ? '#e4223e' : '#17c545'
+                    }"
+                  ></i>
+                </section>
+              </div>
+            </section>
+          </div>
+        </p-scrollPanel>
+      </div>
     </div>
-    <div style="display:flex;width: 100%;padding: 10px">
-      <p-table [columns]="cols" [value]="dataSource" [(selection)]="selectedItems" dataKey="id" [rows]="4" paginator="true">
-        <ng-template pTemplate="header" let-columns>
-          <tr>
-            <th style="width: 3em">
-              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-            </th>
-            <th *ngFor="let col of columns">
-              {{ col.header }}
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-          <tr [pSelectableRow]="rowData">
-            <td>
-              <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
-            </td>
-            <td>
-              {{ rowData.country }}
-            </td>
-            <td>
-              {{ rowData.company }}
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </div>
-  </section>
-  <section class="fl-row card-chat">
-    <div  class="fl-start" style="padding: 10px;width: 100%;height: calc( 100vh - 409px);">
-      <kendo-chat [messages]="feed | async" [user]="user" (sendMessage)="sendMessage($event)"> </kendo-chat>
-    </div>
-    <div style="display: flex;justify-content: flex-start;">
-      <section class="fl-column">
-        <div class="fl-row" style="height:43px;">
-          <button style="margin-top: 10px;margin-right: 5px" pButton type="button" label="Connect" class="ui-button-secondary fl"></button>
-          <button
-            style="margin-top: 10px;margin-right: 10px;width: 100%"
-            pButton
-            type="button"
-            label="Call"
-            class="ui-button-secondary fl"
-          ></button>
+    <div class="content-box">
+      <section class="fl-column card-assign-work">
+        <div
+          style="display:flex;flex-direction: row;padding: 10px;color: #48494d"
+        >
+          <span>Assigned Work</span>
         </div>
-        <div class="fl-row" style="height:38px;">
-          <button style="margin-top:5px;margin-right: 5px" pButton type="button" label="Connect" class="ui-button-secondary fl"></button>
-          <button style="margin-top:5px;margin-right: 10px" pButton type="button" label="Connect" class="ui-button-secondary fl"></button>
+        <div style="display:flex;width: 100%;padding: 10px">
+          <p-table
+            [columns]="cols"
+            [value]="dataSource"
+            [(selection)]="selectedItems"
+            dataKey="id"
+            [rows]="4"
+            paginator="true"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th style="width: 3em">
+                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th *ngFor="let col of columns">
+                  {{ col.header }}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr [pSelectableRow]="rowData">
+                <td>
+                  <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                </td>
+                <td>
+                  {{ rowData.country }}
+                </td>
+                <td>
+                  {{ rowData.company }}
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </section>
+      <section class="fl-row card-chat">
+        <div
+          class="fl-start"
+          style="padding: 10px;width: 100%;height: calc( 100vh - 409px);"
+        >
+          <kendo-chat
+            [messages]="feed | async"
+            [user]="user"
+            (sendMessage)="sendMessage($event)"
+          >
+          </kendo-chat>
+        </div>
+        <div style="display: flex;justify-content: flex-start;">
+          <section class="fl-column">
+            <div class="fl-row" style="height:43px;">
+              <button
+                style="margin-top: 10px;margin-right: 5px"
+                pButton
+                type="button"
+                label="Connect"
+                class="ui-button-primary fl"
+              ></button>
+              <button
+                style="margin-top: 10px;margin-right: 10px;width: 100%"
+                pButton
+                type="button"
+                label="Call"
+                class="ui-button-primary fl"
+              ></button>
+            </div>
+            <div class="fl-row" style="height:38px;">
+              <button
+                style="margin-top:5px;margin-right: 5px"
+                pButton
+                type="button"
+                label="Connect"
+                class="ui-button-primary fl"
+              ></button>
+              <button
+                style="margin-top:5px;margin-right: 10px"
+                pButton
+                type="button"
+                label="Connect"
+                class="ui-button-primary fl"
+              ></button>
+            </div>
+          </section>
         </div>
       </section>
     </div>
-  </section>
-  
+  </div>
+</section>

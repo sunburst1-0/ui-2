@@ -1,188 +1,190 @@
+.side-bar-item-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 231px;
+}
+.side-bar-margin-text {
+  margin-left: 5px;
+}
+
+.mat-expansion-indicator::after {
+  color: white !important;
+}
+.side-nav-toggle-icon {
+  cursor: pointer;
+}
+.fixed-height {
+  height: 100vh !important;
+}
+/*By Keshara*/
+
 element.style {
-    display: none;
-    left: 593px;
-    top: 555px;
-    transform: translate(-38.151%, 21px);
+  display: none;
+  left: 593px;
+  top: 555px;
+  transform: translate(-38.151%, 21px);
 }
 .example-icon {
-    padding: 4px 25px 7px 0px;
-    
-  }
- .dragger{
-    padding: 0 3px; 
- }
+  padding: 4px 25px 7px 0px;
+}
+.dragger {
+  padding: 0 3px;
+}
 
- .dragger-sidebar{
-    padding: 15px 10px;
+.dragger-sidebar {
+  padding: 15px 10px;
+}
+.dragger-sidebar:hover {
+  background-color: white;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
 
- }
- .dragger-sidebar:hover{
-    background-color: white;
-
- }
-  .example-spacer {
-    flex: 1 1 auto;
-  }
- 
-  /* .mat-icon  {
+/* .mat-icon  {
 
    background-color: tomato;
   } */
 
-
-.mat-toolbar-row, .mat-toolbar-single-row {
-    height: 64px;
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 64px;
 }
 
-.mat-toolbar-row, .mat-toolbar-single-row {
-    color: rgb(255, 255, 255);
-    display: flex;
-    /* background-color: #222437; */
-    background-color: #1F1B24;
-    box-sizing: border-box;
-    padding: 3 16px;
-    width: 100% !important;
-    flex-direction: row;
-    align-items: center;
-    white-space: nowrap;
-    border-style: none;
-    /* overflow: hidden; */
-} 
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  color: rgb(255, 255, 255);
+  display: flex;
+  /* background-color: #222437; */
+  background-color: #1f1b24;
+  box-sizing: border-box;
+  padding: 3 16px;
+  width: 100% !important;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  border-style: none;
+  /* overflow: hidden; */
+}
 /* .map{
 
     height: 100px !important;
     width: auto;
 
 } */
-.mapMain{
-
-    height: 300px !important;
-    width: 850px;
-    max-block-size: 312px;
-    margin-left: 200px;
-
+.mapMain {
+  height: 300px !important;
+  width: 850px;
+  max-block-size: 312px;
+  margin-left: 200px;
 }
 mat-grid-tile {
-    background:transparent;
-  }
-  .example-container {
-  
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0px;
-    right: 0px;
-    color: thistle !important;
-    /* background:#1c1e2f; */
-    background:#1F1B24 ;
-    height: 100% !important;
-  }
+  background: transparent;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+  color: thistle !important;
+  /* background:#1c1e2f; */
+  background: #1f1b24;
+  height: 100% !important;
+}
 
-  .mat-expansion-panel {
+.mat-expansion-panel {
+  display: unset !important;
+  color: white !important;
+  background: #1f1b24;
+}
+.mat-expansion-indicator {
+  color: white !important;
+}
+.mat-expansion-panel-header-title {
+  /* background:#1F1B24 ; */
+  color: ivory;
+}
+.mat-expansion-panel-header-title:hover {
+  color: black !important;
+}
 
-    display: unset !important;
-    color: white !important;
-     background:#1F1B24 ;
+.panel-header:hover {
+  background: #6e76ca !important;
+  color: black !important;
+  color: thistle !important;
+}
+.accor-dta:hover {
+  background: #9da0b8 !important;
+}
+/* .accor-boder{
 
-  }
-  .mat-expansion-indicator 
-   {
-    color: white !important;
-  }
-  .mat-expansion-panel-header-title{
-
-    /* background:#1F1B24 ; */
-    color: ivory;
-  }
-  .mat-expansion-panel-header-title:hover{
-
-    color: black !important;
-  }
-
-  .panel-header:hover{
-    background:#6e76ca !important;
-    color: black !important;
-     color: thistle !important;
-  }
-  .accor-dta:hover{
-
-    background:#9da0b8 !important;
-  }
-  /* .accor-boder{
-
-   z-index: -1000;  
+   z-index: -1000;
 
   }  */
-  .mat-raised-button{
+.mat-raised-button {
+  width: 250px !important;
+  height: 60px !important;
+  padding: 0px;
+  margin: 5px !important;
+  background-color: #4557df !important ;
+  font: 1em sans-serif;
+  animation: inherit;
+}
 
-   width: 250px !important;
-   height: 60px !important;
-   padding: 0px;
-   margin: 5px !important;
-   background-color:#4557df !important ;
-   font: 1em sans-serif;
-   animation: inherit;
-   
+.mat-sidenav-content {
+  background-color: #121212;
+  /* background-color: #1b1b38; */
+  max-block-size: 80% !important;
+}
 
-  }
- 
- .mat-sidenav-content{
-    background-color: #121212;
-    /* background-color: #1b1b38; */
-    max-block-size: 80% !important;
- }   
+.mat-sidenav {
+  width: 20%;
+}
 
- .mat-sidenav{
+.example-card {
+  max-width: 250px !important;
+  max-height: 100px !important;
+  padding: 42px;
+  /* background-color:#121212; */
+  background-color: #1c1e2f;
+  margin: 3%;
+}
+.example-card-x {
+  max-width: 580px !important;
+  max-height: 201px !important;
+  padding: 42px !important;
+  /* background-color:#121212; */
+  background-color: #1c1e2f;
+  padding-top: 5px;
+  margin: 3%;
+  display: block;
+}
 
-    width: 20%;
- }
-
- .example-card {
-    max-width: 250px !important;
-    max-height: 100px !important;
-    padding: 42px;
-    /* background-color:#121212; */
-    background-color: #1c1e2f;
-    margin: 3%;
-  }
-  .example-card-x {
-    max-width: 580px !important;
-    max-height: 201px !important;
-    padding: 42px !important;
-    /* background-color:#121212; */
-    background-color: #1c1e2f;
-    padding-top: 5px;
-    margin: 3%;
-    display: block;
-  }
-  
-  .example-header-image {
-    background-image: url('../../../assets/pictures/user.svg');
-    background-size: cover;
-    z-index: 3;
-  }
-.dash{
-
-    padding: 2px !important;
-    background-color: #1c1e2f;
+.example-header-image {
+  background-image: url("../../../assets/pictures/user.svg");
+  background-size: cover;
+  z-index: 3;
+}
+.dash {
+  padding: 2px !important;
+  background-color: #1c1e2f;
 }
 .example-button-row button,
 .example-button-row a {
   margin-right: 8px;
   padding-right: 16px;
 }
-.btn{
-
-    background-color: rgb(14, 97, 231);
-
+.btn {
+  background-color: rgb(14, 97, 231);
 }
 
-.inside-icon{
-
+.inside-icon {
   background-color: cornflowerblue;
 }
-.inside-icon:hover{
-  
+.inside-icon:hover {
   background-color: rgb(14, 97, 231);
-
 }

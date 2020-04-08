@@ -24,7 +24,7 @@
     pointer-events: none;
     z-index: 1000;
   }
-  
+
   .mat-toolbar-row, .mat-toolbar-single-row {
     color: rgb(255, 255, 255);
     display: flex;
@@ -38,14 +38,14 @@
     white-space: nowrap;
     border-style: none;
     /* overflow: hidden; */
-} 
+}
 
 .example-spacer {
   flex: 1 1 auto;
 }
 .example-icon {
   padding: 4px 25px 7px 0px;
-  
+
 }
 .mat-grid-tile{
   width: 100%;
@@ -60,7 +60,7 @@
   flex-direction: row;
   max-width: 300px !important;
   max-height: 100px !important;
-  margin: 20px !important;
+  /*margin: 20px !important;*/
   overflow: unset !important;
 }
 .card-tile{
